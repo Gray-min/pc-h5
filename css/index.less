@@ -1,0 +1,566 @@
+@import './animation.less';
+.wrap{
+    position: relative;
+    height: 100%;
+    .header{
+        hgroup{
+            height: 80px;
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            position: relative;
+            .logo{
+            margin-top: 30px;
+            }
+           .menu-list{
+            margin-top: 50px;
+               display: flex;
+                li{
+                    flex: 1;
+                    margin-left: 40px;
+                    a{
+                        position: relative;
+                        display: block;
+                        .front{
+                            color: #00e;
+                           
+                        }
+                        .back{
+                          position: absolute;
+                          top: 0;
+                          width: 0px;
+                          overflow: hidden;
+                          transition: 1s width;
+                        }
+                        &:hover .back{
+                            width: 100%;
+                        }
+                    }
+                }
+           }
+           .arrow{
+               width: 21px;
+               height: 11px;
+               background-image: url('../img/menuIndicator.png');
+               position: absolute;
+               left: 50%;
+               bottom: -11px;
+               z-index: 2;
+               transition: 1s;
+           }
+           .music{
+               position: absolute;
+               width: 50px;
+               line-height: 50px;
+               top: 28px;
+               left: 180px;
+               text-align: center;
+           }
+        }
+    }
+    .pages{
+        background-color: red;
+           width: 100%;
+           position: relative;
+           overflow: hidden;
+        .page-list{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: 0 auto;
+            background-color: blue;
+            transition: 1s;
+            >li{
+                position: relative;
+                background-position: center;
+                background-repeat: no-repeat;
+                overflow: hidden;
+                .content{
+                    width: 1100px;
+                    height: 520px;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    .home{
+                        height: 100%;
+                        .home-list{
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+                            perspective: 800px;
+                            transform-style: preserve-3d;
+                            transition: 1s transform;
+                           >li{
+                               position: absolute;
+                               left: 0;
+                               right: 0;
+                               top: 0;
+                               bottom: 0;
+                               color: #fff;
+                               display: flex;
+                               justify-content: center;
+                               align-items: center;
+                               visibility: hidden;
+                               &.rightHide{
+                                   visibility: hidden;
+                                   animation: 2s rightHide ;
+                               }
+                               &.leftShow{
+                                   visibility: visible;
+                                animation: 2s leftShow;
+                               }
+                               &.leftHide{
+                                visibility: hidden;
+                                animation: 2s leftHide ;
+                              }
+                                &.rightShow{
+                                visibility: visible;
+                             animation: 2s rightShow;
+                                }
+                               &:nth-child(1){
+                                background:#dc6c5f;
+                               }
+                               &:nth-child(2){
+                                 background:#95dc84;
+                               }
+                               &:nth-child(3){
+                              background:#64b92d;;
+                               }
+                               &:nth-child(4){
+                                background:#000000;
+                               }
+                           } 
+                        }
+                        .home-buttons{
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            display: flex;
+                            justify-content: center;
+                            transition: 1s transform;
+                          >li{
+                              width: 20px;
+                              height: $width;
+                              background-color: rgba(255,255,255,0.5);
+                              box-shadow: 0 0 4px rgba(25,25,25,0.8);
+                              border-radius: 50%;
+                              margin: 2px;
+                              cursor:pointer;
+                              &.active{
+                                  background-color: #fff;
+                              }
+                          }
+                        }
+                    }
+                    .course{
+                        .course1{
+                        margin: 50px;
+                        position: relative;
+                        z-index: 10;
+                        }
+                        .course2{
+                            width: 400px;
+                            margin: 50px;
+                            color: #fff;
+                            position: relative;
+                            z-index: 10;
+                        }
+                        .course3{
+                            display: flex;
+                            flex-flow: row wrap;
+                            width: 480px;
+                            height: 360px;
+                            position: absolute;
+                            right: 0;
+                            top: 50px;
+                            z-index: 10;
+                            li{
+                                width: 120px;
+                                height: $width;
+                                padding: 6px 0;
+                                box-sizing: content-box;
+                                position: relative;
+                                perspective: 500px;
+                                .facewrap{
+                                    width: 100%;
+                                    height: 100%;
+                                    position: absolute;
+                                    transition: 1s;
+                                    transform-style: preserve-3d;
+                                    .faceback{
+                                        width: 100%;
+                                        height: 100%;
+                                        position: absolute;
+                                        top: 0;
+                                        transform: rotateY(-180deg);
+                                        background-color: #009EE0;
+                                        backface-visibility: hidden;
+                                        padding: 10px;
+                                        box-sizing: border-box;
+                                        color: #fff;
+                                    }
+                                    .face{
+                                        width: 100%;
+                                        height: 100%;
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                    }
+                                }
+                                 &:hover .facewrap{
+                                     transform: rotateY(180deg); 
+                                    }
+                                &:nth-child(1){
+                                  
+                                    .face{
+                                        background-image: url('../img/apcoa.png');
+                                    }
+                                   
+                                }
+                                &:nth-child(2){
+                                    .face{
+                                        background-image: url('../img/binoli.png');
+                                    }
+                                }
+                                &:nth-child(3){
+                                    .face{
+                                        background-image: url('../img/bks.png');
+                                    }
+                                }
+                                &:nth-child(4){
+                                    .face{
+                                        background-image: url('../img/gu.png');
+                                    }
+                                }
+                                &:nth-child(5){
+                                    .face{
+                                        background-image: url('../img/hlx.png');
+                                    }
+                                }
+                                &:nth-child(6){
+                                    .face{
+                                        background-image: url('../img/lbs.png');
+                                    }
+                                }
+                                &:nth-child(7){
+                                    .face{
+                                        background-image: url('../img/leonberg.png');
+                                    }
+                                }
+                                &:nth-child(8){
+                                    .face{
+                                        background-image: url('../img/pcwelt.png');
+                                    }
+                                }
+                                &:nth-child(9){
+                                    .face{
+                                        background-image: url('../img/tata.png');
+                                    }
+                                }
+                                &:nth-child(10){
+                                    .face{
+                                        background-image: url('../img/binoli.png');
+                                    }
+                                }
+                                &:nth-child(11){
+                                    .face{
+                                        background-image: url('../img/binoli.png');
+                                    }
+                                }
+                                &:nth-child(12){
+                                    .face{
+                                        background-image: url('../img/binoli.png');
+                                    }
+                                }
+                            }
+                            .line{
+                                height: 410px;
+                                width: 9px;
+                                background-image: url('../img/plus_row.png');
+                                background-position: center;
+                                position: absolute;
+                                top: 0px;
+                                &:nth-of-type(1){
+                                    right:5px
+                                }
+                                &:nth-of-type(2){
+                                    right:115px
+                                }
+                                &:nth-of-type(3){
+                                    right:235px
+                                }
+                                &:nth-of-type(4){
+                                    right:355px
+                                }
+                                &:nth-of-type(5){
+                                    right:475px
+                                }
+                            }
+                           
+                        }
+                        .plane1{
+                            position: absolute;
+                            top: -150px;
+                            left: 240px;
+                            transition: 1s transform;
+                        }
+                        .plane2{
+                            position: absolute;
+                            bottom: -50px;
+                            left: -20px;
+                            transition: 1s transform;
+                        }
+                        .plane3{
+                            position: absolute;
+                            bottom: 0;
+                            left: 550px;
+                            transition: 1s transform;
+                        }
+                    }
+                    .works{
+                        .works1{
+                            margin: 50px 0 100px 50px;
+                            position: relative;
+                            z-index: 99;
+                        }
+                        .works2{
+                            display: flex;
+                            position: relative;
+                            z-index: 99;
+                            >li{
+                                >a{
+                                    position: relative;
+                                    display: block;
+                                    height: 133px;
+                                    .mask{
+                                        position: absolute;
+                                        width: 100%;
+                                        height: 100%;
+                                        background-color: #000;
+                                        opacity: 0;
+                                        transition: 1s;
+                                        padding: 10px;
+                                        color: #fff;
+                                       .icon{width: 32px;
+                                            height:34px;
+                                            margin: 0 auto;
+                                            margin-top: 10px; 
+                                            background: url('../img/zoomico.png') no-repeat;
+                                            transition: 0.5s background-position;
+                                            &:hover{
+                                                background-position:0 -35px;
+                                            }
+                                        }
+                                        }
+                                    &:hover .mask{
+                                        opacity: 0.8;
+                                    }
+                                    
+                                }
+                            }
+                        }
+                        .works3{
+                            width: 167px;
+                            height: 191px;
+                            background-image: url('../img/robot.png');
+                            position: absolute;
+                            right: 50px;
+                            top: 170px;
+                            animation:robot 8s infinite;
+                            z-index: 99;
+                        }
+                        .pencil1{
+                            position: absolute;
+                            top: 0;
+                            right: 350px;
+                            transition: 1s transform;
+                        }
+                        .pencil2{
+                            position: absolute;
+                            top: 250px;
+                            left: 300px;
+                            transition: 1s transform;
+                        }
+                        .pencil3{
+                            position: absolute;
+                            bottom: 0px;
+                            right:50px;
+                            transition: 1s transform;
+                        }
+                    }
+                    .about{
+                        .about1{
+                            margin:  50px 0 100px 50px;
+                        }
+                        .about2{
+                            width: 400px;
+                            margin-left: 50px;
+                        }
+                        .about3{
+                            width: 357px;
+                            height: 998px;
+                            background-image: url('../img/greenLine.png');
+                            position: absolute;
+                            top: -100px;
+                            right: 200px;
+                        }
+                        .about4{
+                            width: 400px;
+                            height: 500px;
+                            position: absolute;
+                            top: 0;
+                            right:100px;
+                            .item{
+                                width: 260px;
+                                height: 200px;
+                                border: 5px solid rgba(255,255,255,0.5);
+                                margin-top: 40px;
+                                border-radius: 8px;
+                                overflow: hidden;
+                                position: relative;
+                                transition: 1s transform;
+                                >img{
+                                    transform: scale(1.5);
+                                    transition: 1s transform;
+                                }
+                                .imgs{
+                                   position: absolute;
+                                   top: 0;
+                                   bottom: 0;
+                                   left: 0;
+                                   right: 0;
+                                   display: flex;
+                                   flex-flow: row wrap;
+                                   li{
+                                     overflow: hidden;
+                                     position: relative;
+                                     >img{
+                                         position: absolute;
+                                         transition: 1s;
+                                     }
+                                   }
+                                }
+                                &:nth-child(1){
+                                    margin-left: 150px;
+                                }
+                                &:nth-child(2){
+                                }
+                                &:hover >img{
+                                    transform: scale(1);
+                                }
+                            }
+                        }
+                    }
+                    .team{
+                        width: 100%;
+                        height: 100%;
+                        .team1{
+                            margin: 50px;
+                            position: relative;
+                            z-index: 10;
+                            transition: 1s transform;
+                        }
+                        .team2{
+                            width: 400px;
+                            position: absolute;
+                            right: 50px;
+                            top: 50px;
+                            z-index: 10;
+                            transition: 1s transform;
+                        }
+                        .team3{
+                            position: absolute;
+                            width: 944px;
+                            height: 448px;
+                            bottom: -230px;
+                            left: 50px;
+                            >.members{
+                                display: flex;
+                                >li{
+                                    overflow: hidden;
+                                    position: relative;
+                                    transition: 1s opacity;
+                                    >img{
+                                        position: absolute;
+                                    }
+                                }
+                            }
+                            canvas{
+                                position: absolute;
+                                top: 0;
+                            }
+                        }
+                    }
+                }
+                &:nth-child(1){
+                    background-image: url('../img/bg1.jpg');
+    
+                }
+                &:nth-child(2){
+                    background-image: url('../img/bg2.jpg');
+                }
+                &:nth-child(3){
+                    background-image: url('../img/bg3.jpg');
+                }
+                &:nth-child(4){
+                    background-image: url('../img/bg4.jpg');
+                }
+                &:nth-child(5){
+                    background-image: url('../img/bg5.jpg');
+                }
+            }
+        }
+    }
+    .dot{
+      position: fixed;
+      z-index: 999;
+      top:44%;
+      right: 0;
+        >li{
+         width: 16px;
+         height: $width;
+         border-radius: 50%;
+         margin:10px;
+         background-color: rgba(255, 255, 255,.3);
+         border: 2px solid rgba(0,0,0,.3);
+         &.active{
+             background-color: rgba(255, 255, 255,.8);
+         }
+        }
+    }
+   .mask{
+       position: absolute;
+       top:0;
+       height: 100%;
+       width:100%;
+       z-index: 9999;
+       >.up{
+           width: 100%;
+           height: 50%;
+           background-color: deepskyblue;
+           transition: 1s height;
+       }
+       >.down{
+        width: 100%;
+        height: 50%;
+        background-color: deepskyblue;
+        position: absolute;
+        bottom: 0;
+        transition: 1s height;
+       }
+       >.center{
+           width: 0;
+           height: 10px;
+           background-color: #fff;
+           position: absolute;
+           top: 50%;
+           transform: translateY(-50%);
+           transition: 1s width;
+       }
+   }
+}
